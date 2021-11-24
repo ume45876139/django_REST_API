@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from watchlist_app.models import WatchList, StreamPlatform
 
-class StreamPlatform(serializers.ModelSerializer):
+class StreamPlatformSerializer(serializers.ModelSerializer):
   class Meta:
     model = StreamPlatform
     fields = "__all__"
