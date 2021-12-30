@@ -24,8 +24,7 @@ class StreamPlatformSerializer(serializers.ModelSerializer):
         read_only=True,
         view_name='stream-detail'
   )
-
-
+  
   class Meta:
     model = StreamPlatform
     fields = "__all__"
