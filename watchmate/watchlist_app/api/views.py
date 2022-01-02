@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from rest_framework import generics
 # from rest_framework import mixins
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from watchlist_app.models import WatchList, StreamPlatform, Review
 from watchlist_app.api.serializers import (WatchListSerializer,
@@ -35,6 +36,7 @@ class ReviewCreate(generics.CreateAPIView):
 class ReviewList(generics.ListCreateAPIView):
   # queryset = Review.objects.all()
   serializer_class = ReviewSerializer
+  permission_classes = [IsAuthenticated]
 
   def get_queryset(self):
     pk = self.kwargs['pk']
