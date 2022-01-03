@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from rest_framework import generics
 # from rest_framework import mixins
 from rest_framework import viewsets
+from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 
 from watchlist_app.api.permissions import AdminOrReadOnly
@@ -45,6 +46,7 @@ class ReviewCreate(generics.CreateAPIView):
 class ReviewList(generics.ListCreateAPIView):
   queryset = Review.objects.all()
   serializer_class = ReviewSerializer
+  authentication_classes = [BasicAuthentication]
   permission_classes = [IsAuthenticated]
 
   def get_queryset(self):
